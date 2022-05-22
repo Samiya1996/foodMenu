@@ -1,0 +1,10 @@
+.header{
+    height: 4rem;width: 100%;background-color: yellow;
+}
+.side-bar{
+    float: left;
+    width: 18rem;
+}
+.content-container{
+    display: flex
+}
