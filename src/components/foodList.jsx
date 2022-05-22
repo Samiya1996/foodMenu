@@ -1,13 +1,7 @@
 import React from "react";
-import { Layout } from 'antd';
 import data from './data'
-import Card from '@mui/material/Card';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
-import Grid from '@mui/material/Grid'
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import FoodCard from './card';
 import pointOfTruth from "./pointOfTruth";
 import { Row, Col } from 'antd';
@@ -15,7 +9,7 @@ import { Row, Col } from 'antd';
 import './foodList.css'
 import { Input } from "@mui/material";
 
-const { Header, Footer, Sider, Content } = Layout;
+
 class FoodList extends React.Component {
 
     constructor() {
