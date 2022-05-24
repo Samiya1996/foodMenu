@@ -8,3 +8,11 @@
 .content-container{
     display: flex
 }
+.food-list-card-container{
+    height: fit-content;
+    min-height: 300px !important
+}
+.content-container-row{
+    height: fit-content; 
+    min-height: 80vh !important
+}

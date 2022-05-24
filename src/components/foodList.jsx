@@ -4,7 +4,7 @@ import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import FoodCard from './card';
 import pointOfTruth from "./pointOfTruth";
-import { Row, Col } from 'antd';
+import { Row, Col, Button } from 'antd';
 
 import './foodList.css'
 import { Input } from "@mui/material";
@@ -54,14 +54,14 @@ class FoodList extends React.Component {
     }
 
     _renderRest = (menuList) => {
-        console.log(menuList)
+        
         let list = menuList ? menuList : this.state.menuList
         return (
-            <Row spacing={2} style={{ margin: "5px" }}>
+            <Row gutter={[32,32]} className='food-list-card-container'>
                 {
                     list.map((item, index) => {
                         return (
-                            <Col span={4}>
+                            <Col xs={16} sm = {10} lg={4}>
                                 <FoodCard onCardClick={this._onCardClick} item={item} />
                             </Col>
                         )
@@ -127,32 +127,31 @@ class FoodList extends React.Component {
         const resturentList = Object.keys(data.menuDetails)
 
         return (
-            <Row>
+            <>
                 <Row className="header" style={{display:'flex', justifyContent:'center'}}>
                     <div style={{width:'70vw'}}>
                         <Input fullWidth={true} placeholder="Search" onChange={(e) => this._handleChange(e.target.value)} />
                     </div>
                 </Row>
-                <Row style={{height:'80vh'}} >
-                    <Col span={4}>
+                <Row classname="content-container-row">
+                    <Col sx = {4} sm ={4} lg={4}>
                         <MenuList>{resturentList.map(a =>
                             <MenuItem onClick={() => this._onMenueClick(a)} key={a}>{a}</MenuItem>)}
                         </MenuList>
                     </Col>
-                    <Col span={20}>
+                    <Col sx = {12} sm ={12} lg={20}>
                     {this.renderCard()}
                     </Col>
-                       
                 </Row>
-                <Row>
-                    <Col span={7}  style={{ backgroundColor: '#ffff00', margin:"20px", padding: "5px", borderRadius: "20px", display: "flex", justifyContent: "center", cursor: "pointer" }} onClick={() => this._handleAll(true)}>All Available</Col>
-                    <Col span={7} style={{  backgroundColor: '#ffff00', margin:"20px", padding: "5px", borderRadius: "20px", display: "flex", justifyContent: "center", cursor: "pointer" }} onClick={() => this._handleAll(false)}>All Unavailable</Col>
-                    <Col span={7} style={{  backgroundColor: '#ffff00',  margin:"20px", padding: "5px", borderRadius: "20px", display: "flex", justifyContent: "center", cursor: "pointer" }} onClick={() => this.setState({ applied: true })}>Apply</Col>
+                <Row gutter={[32,32]}>
+                    
+                    <Col   sx = {24} sm ={6} lg={7} style={{ backgroundColor: '#ffff00', justifyContent: "center",  margin:"20px", padding: "5px", borderRadius: "20px", display: "flex", justifyContent: "center",  cursor: "pointer" }} onClick={() => this._handleAll(true)}>All Available</Col>
+                    <Col sx = {24} sm = {6} lg={7} style={{backgroundColor: '#ffff00',  margin:"20px", padding: "5px", borderRadius: "20px", display: "flex", justifyContent: "center",  cursor: "pointer" }} onClick={() => this._handleAll(false)}>All Unavailable</Col>    
+                    <Col sx = {24} sm = {6} lg={7} style={{  backgroundColor: '#ffff00', margin:"20px", padding: "5px", borderRadius: "20px", display: "flex", justifyContent: "center",  cursor: "pointer" }} onClick={() => this.setState({ applied: true })}>Apply</Col>
                 </Row>
-            </Row>
+            </>
         )
     }
-
 }
 
 export default FoodList

@@ -1,4 +1,3 @@
-
 const data = {
     "menuDetails": {
       "EATORAMA": [
